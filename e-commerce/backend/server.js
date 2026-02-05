@@ -11,7 +11,7 @@ const app = express();
 // CORS configuration for production
 const corsOptions = {
   origin: process.env.NODE_ENV === 'production' 
-    ? ['https://your-netlify-app.netlify.app'] // Replace with your Netlify URL
+    ? ['https://your-netlify-app.netlify.app', 'https://*.netlify.app'] // Will update with actual Netlify URL
     : ['http://localhost:3000', 'http://localhost:5173'],
   credentials: true
 };
