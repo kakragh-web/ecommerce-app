@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "build": "cd e-commerce/backend && npm install",
-    "start": "cd e-commerce/backend && npm start"
+    "start": "cd e-commerce/backend && node server.js"
   },
   "engines": {
     "node": ">=18.0.0"
