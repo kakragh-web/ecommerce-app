@@ -1,0 +1,11 @@
+{
+  "name": "ecommerce-app",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "cd e-commerce/backend && npm install",
+    "start": "cd e-commerce/backend && npm start"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
