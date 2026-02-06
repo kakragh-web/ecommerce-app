@@ -1,14 +1,15 @@
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
+import passport from "passport";
 import "dotenv/config";
+import "./src/config/passport.js";
 import authRoutes from "./src/routes/authRoutes.js";
 import productRoutes from "./src/routes/productRoutes.js";
 import orderRoutes from "./src/routes/orderRoutes.js";
 import paymentRoutes from "./src/routes/paymentRoutes.js";
 const app = express();
 
-// CORS configuration for production
 const corsOptions = {
   origin: process.env.NODE_ENV === 'production' 
     ? ['https://ecoomerce-app.netlify.app']
@@ -18,6 +19,7 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 app.use(express.json());
+app.use(passport.initialize());
 
 app.get("/", (req, res) => res.json({ message: "eCommerce API" }));
 

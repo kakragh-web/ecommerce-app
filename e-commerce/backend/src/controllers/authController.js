@@ -13,7 +13,6 @@ export const registerUser = async (req, res) => {
 
     const hashedPassword = await bcrypt.hash(password, 12);
     
-    // Make first user admin, or check for admin email
     const userCount = await User.countDocuments();
     const role = userCount === 0 || email === 'admin@example.com' ? 'admin' : 'user';
     
@@ -68,4 +67,16 @@ export const loginUser = async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: "Server error" });
   }
+};
+
+export const googleCallback = async (req, res) => {
+  const token = jwt.sign({ userId: req.user._id, role: req.user.role }, process.env.JWT_SECRET, { expiresIn: "7d" });
+  const userData = encodeURIComponent(JSON.stringify({ id: req.user._id, name: req.user.name, email: req.user.email, role: req.user.role }));
+  res.redirect(`${process.env.CLIENT_URL}?token=${token}&user=${userData}`);
+};
+
+export const facebookCallback = async (req, res) => {
+  const token = jwt.sign({ userId: req.user._id, role: req.user.role }, process.env.JWT_SECRET, { expiresIn: "7d" });
+  const userData = encodeURIComponent(JSON.stringify({ id: req.user._id, name: req.user.name, email: req.user.email, role: req.user.role }));
+  res.redirect(`${process.env.CLIENT_URL}?token=${token}&user=${userData}`);
 };
