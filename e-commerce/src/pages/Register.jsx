@@ -83,11 +83,13 @@ const Register = () => {
   };
 
   const handleRegisterWithGoogle = () => {
-    alert("Google registration integration would be implemented here");
+    const apiUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api';
+    window.location.href = `${apiUrl.replace('/api', '')}/api/auth/google`;
   };
 
   const handleRegisterWithFacebook = () => {
-    alert("Facebook registration integration would be implemented here");
+    const apiUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api';
+    window.location.href = `${apiUrl.replace('/api', '')}/api/auth/facebook`;
   };
 
   return (
@@ -185,56 +187,66 @@ const Register = () => {
               <div className="row">
                 <div className="col-md-6">
                   <input
+                    id="firstName"
                     type="text"
                     className="form-control"
                     name="firstName"
                     placeholder="First Name"
                     value={formData.firstName}
                     onChange={handleInputChange}
+                    autoComplete="given-name"
                     required
                   />
                 </div>
                 <div className="col-md-6">
                   <input
+                    id="lastName"
                     type="text"
                     className="form-control"
                     name="lastName"
                     placeholder="Last Name"
                     value={formData.lastName}
                     onChange={handleInputChange}
+                    autoComplete="family-name"
                     required
                   />
                 </div>
               </div>
               <div className="mb-3">
                 <input
+                  id="email"
                   type="email"
                   className="form-control"
                   name="email"
                   placeholder="Email Address"
                   value={formData.email}
                   onChange={handleInputChange}
+                  autoComplete="email"
                   required
                 />
               </div>
               <div className="mb-3">
                 <input
+                  id="phone"
                   type="tel"
                   className="form-control"
                   name="phone"
                   placeholder="Phone Number"
                   value={formData.phone}
                   onChange={handleInputChange}
+                  autoComplete="tel"
                 />
               </div>
               <div className="mb-3">
                 <input
+                  id="password"
                   type="password"
                   className="form-control"
                   name="password"
                   placeholder="Password"
                   value={formData.password}
                   onChange={handleInputChange}
+                  autoComplete="new-password"
                   required
                 />
                 <div className={`password-strength ${passwordStrength}`}></div>
@@ -244,12 +256,14 @@ const Register = () => {
               </div>
               <div className="mb-3">
                 <input
+                  id="confirmPassword"
                   type="password"
                   className="form-control"
                   name="confirmPassword"
                   placeholder="Confirm Password"
                   value={formData.confirmPassword}
                   onChange={handleInputChange}
+                  autoComplete="new-password"
                   required
                 />
               </div>
@@ -257,6 +271,7 @@ const Register = () => {
                 <input
                   type="checkbox"
                   className="form-check-input"
+                  id="terms"
                   name="terms"
                   checked={formData.terms}
                   onChange={handleInputChange}
@@ -273,6 +288,7 @@ const Register = () => {
                 <input
                   type="checkbox"
                   className="form-check-input"
+                  id="newsletter"
                   name="newsletter"
                   checked={formData.newsletter}
                   onChange={handleInputChange}
