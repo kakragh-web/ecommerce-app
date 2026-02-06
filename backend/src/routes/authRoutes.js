@@ -1,0 +1,16 @@
+import express from "express";
+import { registerUser, loginUser, googleCallback, facebookCallback } from "../controllers/authController.js";
+import passport from "../config/passport.js";
+
+const router = express.Router();
+
+router.post("/register", registerUser);
+router.post("/login", loginUser);
+
+router.get("/google", passport.authenticate("google", { scope: ["profile", "email"] }));
+router.get("/google/callback", passport.authenticate("google", { session: false }), googleCallback);
+
+router.get("/facebook", passport.authenticate("facebook", { scope: ["email"] }));
+router.get("/facebook/callback", passport.authenticate("facebook", { session: false }), facebookCallback);
+
+export default router;

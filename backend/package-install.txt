@@ -1,0 +1,2 @@
+Run these commands in backend folder:
+npm install passport passport-google-oauth20 passport-facebook

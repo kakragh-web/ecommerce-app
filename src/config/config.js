@@ -1,0 +1,6 @@
+const config = {
+  API_BASE_URL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api',
+  STRIPE_PUBLISHABLE_KEY: import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY || 'pk_test_51RG6jzPegH6xULqKu0DW7ss9HKw7VAA42n52PCVrMY8eif8iacUtsyWxzzhnrsoUXuI3gTqUs3etwsIvV4mguX1E001CUMLejB'
+};
+
+export default config;

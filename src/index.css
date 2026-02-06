@@ -1,0 +1,519 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap');
+
+/* CSS Variables for consistent theming */
+:root {
+    --primary-color: #fd774b;
+    --secondary-color: #fb77fb;
+    --accent-color: coral;
+    --dark-color: #1d1d1d;
+    --light-color: #fff;
+    --gray-color: #999;
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+    --error-color: #dc3545;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+.nav-buttons{
+    margin-left:40%;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family:'Poppins', sans-serif;
+}
+
+h1{
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+h2{
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+h3{
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+h4{
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+h5{
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+h6{
+    color:#D8D8D8;
+}
+
+button{
+    font-size: 0.8rem;
+    font-weight: 600;
+    outline: none;
+    border: none;
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    padding: 13px 30px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: var(--transition);
+    border-radius: var(--border-radius);
+    position: relative;
+    overflow: hidden;
+}
+
+button:hover{
+    color: var(--accent-color);
+    background-color: var(--light-color);
+    box-shadow: var(--box-shadow);
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Button animations */
+button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+button:hover::before {
+    left: 100%;
+}
+
+.navbar{
+    font-size: 16px;
+    padding: 1rem 2rem !important;
+    top: 0;
+    left: 0;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.95) !important;
+    transition: var(--transition);
+}
+
+.navbar.scrolled {
+    padding: 0.5rem 2rem !important;
+    box-shadow: 0 2px 30px rgba(0,0,0,0.15);
+}
+
+.navbar-light .navbar-nav .nav-link{
+    padding: 0 20px;
+    color: #000;
+    transition: 0.4s ease;
+}
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar i:hover,
+.navbar-light .navbar-nav .nav-link.active
+.navbar i:hover{
+    color:coral; 
+}
+
+.navbar i {
+    font-size: 1.2rem;
+    padding: 8px;
+    transition: var(--transition);
+    font-weight: 500;
+    cursor: pointer;
+    margin: 0 5px;
+    position: relative;
+    color: var(--dark-color);
+    display: inline-block !important;
+}
+
+.navbar i:hover {
+    color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+.navbar .fa-shopping-cart {
+    position: relative;
+}
+
+.cart-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    min-width: 18px;
+    height: 18px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 2px 4px;
+    z-index: 10;
+}
+
+@media (max-width: 991px) {
+    .navbar i {
+        font-size: 1.3rem !important;
+        padding: 10px !important;
+        margin: 5px !important;
+        display: inline-block !important;
+    }
+    
+    .nav-buttons .nav-item:last-child {
+        display: flex !important;
+        gap: 15px;
+        margin-top: 10px;
+        align-items: center;
+    }
+    
+    .nav-buttons .nav-item:last-child a {
+        display: inline-block !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar i {
+        font-size: 1.4rem !important;
+        padding: 12px !important;
+    }
+}
+
+@media only screen and (max-width: 990px){
+    .nav-buttons{
+        margin: 10px 0;
+        width: 100%;
+    }
+
+    .nav-buttons ul{
+        margin: 1rem 0;
+        justify-content: flex-start;
+        align-items: center;
+        text-align: left;
+        width: 100%;
+    }
+
+    .nav-buttons ul .nav-item:last-child {
+        margin-left: auto;
+        display: flex !important;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .nav-buttons ul .fas{
+        margin: 0 !important;
+        padding: 10px !important;
+        font-size: 1.3rem !important;
+        display: inline-block !important;
+    }
+}
+
+#home{
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/assets/imgs/IMG_9397.JPG');
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position-x: 90px;
+    background-position-y: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; 
+}
+
+#home::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(253, 119, 75, 0.1), rgba(251, 119, 251, 0.1));
+    animation: gradientShift 8s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+    0%, 100% { opacity: 0.1; }
+    50% { opacity: 0.3; }
+}
+
+#home .container {
+    position: relative;
+    z-index: 2;
+    animation: fadeInLeft 1s ease-out;
+}
+
+#home h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+#home h5 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+}
+
+#home p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    max-width: 500px;
+}
+
+#home button {
+    padding: 15px 40px;
+    font-size: 1rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    border: none;
+    border-radius: 30px;
+    color: white;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(253, 119, 75, 0.3);
+}
+
+#home button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(253, 119, 75, 0.4);
+    background: linear-gradient(45deg, var(--accent-color), var(--primary-color));
+}
+#home span{
+    color:coral;
+}
+
+/* Product */
+.product{
+    cursor: pointer;
+    margin-bottom: 2rem;
+    transition: var(--transition);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    position: relative;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+
+.product:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.product img{
+    transition: 0.3s all;
+}
+
+.product:hover img{
+    transform: scale(1.08);
+}
+
+.product .buy-btn{
+    background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: auto;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.product:hover .buy-btn{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.product .buy-btn:hover {
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(253, 119, 75, 0.4);
+}
+
+hr{
+    width: 30px;
+    height: 3px !important;
+    opacity: 1 !important;
+    background-color: #fd774b;
+}
+
+.star{
+    padding: 10px 0;
+}
+
+.star i{
+    font-size: 0.9rem;
+    color: goldenrod;
+}
+
+footer{
+    background: linear-gradient(135deg, #222222, #1a1a1a);
+    position: relative;
+    overflow: hidden;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+}
+
+footer h5{
+    color: #D8D8D8;
+    font-weight: 700;
+    font-size: 1.2rem;    
+}
+
+footer li{
+    padding-bottom: 4px;
+}
+
+footer li a{
+    font-size: 0.8rem;
+    color: #999;
+    text-decoration: none;
+}
+
+footer li a:hover{
+    color: #D8D8D8;
+}
+
+footer .copyright a{
+    color: #000;
+    height: 40px;
+    width: 40px;
+    background-color: #fff;
+    display: inline-block;
+    text-align: center;
+    line-height: 38px;
+    border-radius: 50px;
+    transition: 0.3s ease;
+    margin: 0 5px;
+}
+
+footer .copyright a:hover{
+    color: #fff;
+    background-color: #fb774b;
+}
+
+footer p{
+    color: #fff;
+    font-size: 0.8rem;
+}
+
+footer .copyright img{
+    width: 30%;
+}
+
+.logo{
+    width: 40px;
+    height: 40px;
+}
+
+.navbar .brand{
+    color: darkorchid;
+    margin: 3px 5px;
+    font-size: 1.5rem;
+}
+
+/* Modern Animations & Effects */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Animation Classes */
+.animate-in {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-left {
+    animation: fadeInLeft 0.6s ease-out;
+}
+
+.animate-right {
+    animation: fadeInRight 0.6s ease-out;
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color);
+}

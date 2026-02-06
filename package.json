@@ -1,11 +1,28 @@
 {
-  "name": "ecommerce-app",
-  "version": "1.0.0",
+  "name": "e-commerce",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "install-backend": "cd e-commerce/backend && npm install",
-    "start": "cd e-commerce/backend && node server.js"
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
   },
-  "engines": {
-    "node": ">=18.0.0"
+  "dependencies": {
+    "@stripe/react-stripe-js": "^5.6.0",
+    "@stripe/stripe-js": "^8.7.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-router-dom": "^7.13.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "@vitejs/plugin-react": "^5.1.2",
+    "eslint": "^8.38.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.3.4",
+    "vite": "^7.3.1"
   }
 }
